@@ -55,8 +55,8 @@ WIN_COMBINATIONS = [
     end
   end
   
-  def turn_count board
-    board.count {|character| character == "X" || character == "O"}
+  def turn_count
+    @board.count {|character| character == "X" || character == "O"}
   end
 
 def current_player(board)
