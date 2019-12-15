@@ -71,29 +71,29 @@ def won?
   end
 end 
 
-def full?(board)
-  board.all?{|token| token == "X" || token == "O"}
+def full?
+  @board.all?{|token| token == "X" || token == "O"}
 end
 
-def draw?(board)
-  full?(board) && !won?(board)
+def draw?
+  full? && !won?
 end
 
-def over?(board)
-  won?(board) || draw?(board)
+def over?
+  won? || draw?
 end
 
-def winner(board)
-  if winning_combination = won?(board)
-    board[winning_combination.first]
+def winner
+  if winning_combination = won?
+    @board[winning_combination.first]
   end
 end
   
-def play(board)
-  turn(board) until over?(board)
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  elsif draw?(board)
+def play
+  turn until over?
+  if won?
+    puts "Congratulations #{winner}!"
+  elsif draw?
     puts "Cat's Game!"
   end
 end
